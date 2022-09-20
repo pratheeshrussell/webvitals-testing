@@ -1,0 +1,3 @@
+export class AppConstants {
+  static content = `The Endangered migratory monarch butterfly is a subspecies of the monarch butterfly (Danaus plexippus). The native population, known for its migrations from Mexico and California in the winter to summer breeding grounds throughout the United States and Canada, has shrunk by between 22% and 72% over the past decade. Legal and illegal logging and deforestation to make space for agriculture and urban development has already destroyed substantial areas of the butterflies’ winter shelter in Mexico and California, while pesticides and herbicides used in intensive agriculture across the range kill butterflies and milkweed, the host plant that the larvae of the monarch butterfly feed on.`;
+}
