@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>CLS-Better</title>
+</head>
+<body >
+    <h3>Add a fixed placeholder for smaller content too</h3>
+    <div x-data="clsDemo" class="col-12 d-flex justify-content-center p-5">
+        <div class="col-6 d-flex flex-column align-items-center">
+            <h2 id="heading" x-text="heading" class="text-center" style="height:75px"></h2>
+            <img src="http://localhost:3000/blocking-resource/image?delay=2000" style="height:300px"  width="auto" />
+            <div class="col-12 row my-3">
+                <div id="cls" style="max-height:220px" x-show="showCls" class="d-flex justify-content-center align-items-center" x-html="clsContent" :class="Contentclass" ></div> 
+                <div id="content" x-text="maincontent" :class="Contentclass"></div>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('clsDemo', () => ({
+            heading:'Loading...',
+            clsContent:'',
+            showCls:false,
+            maincontent:'',
+            Contentclass:'col-12',
+            init(){
+                setTimeout(()=>{ 
+                    this.heading = 'Migratory monarch butterfly now Endangered';
+                },2500);
+                setTimeout(()=>{ 
+                    this.showCls = true;
+                    this.clsContent = '<div style="max-height:200px;background-color:green;width: fit-content;" class="p-2"><img height="180" width="180" alt="HTML5 logo and wordmark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png"></div>';
+                    this.Contentclass ='col-6'; 
+                },1000);
+            
+                setTimeout(()=>{ 
+                    this.showCls = false;
+                    this.clsContent = '';
+                    this.Contentclass ='col-12';
+                    
+                },2500);
+
+                setTimeout(()=>{ 
+                    this.showCls = true;
+                    this.clsContent = '<div style="max-height:200px;background-color:blue;width: fit-content;" class="p-2"><img height="180" width="180" alt="Javascript-736400 960 720" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Javascript-736400_960_720.png/512px-Javascript-736400_960_720.png"></div>'
+                    this.Contentclass ='col-6';
+                    
+                },3000);
+
+                setTimeout(()=>{ 
+                    this.clsContent = '';
+                    this.Contentclass ='col-12';
+                    this.showCls = false;
+                },5500);
+
+                fetch('http://localhost:3000/blocking-resource/content?delay=200')
+                .then((val)=>val.text())
+                .then((val)=>{
+                    this.maincontent = val;
+                });
+
+            }
+        }))
+    })
+
+</script>
+</html>
