@@ -9,6 +9,19 @@ export class BlockingResourceService {
     return this.createObservable(returnContent, delay);
   }
 
+  getBlockingJS(delay: number, processDelay: number): Observable<string> {
+    const returnContent = `
+      const ms = ${processDelay};
+      const busyTime = Date.now() + ms;
+      const startEvent = new Event('blockingjs.start');
+      const endEvent = new Event('blockingjs.done');
+      document.dispatchEvent(startEvent);
+      while(Date.now() <= busyTime){}
+      document.dispatchEvent(endEvent);
+    `;
+    return this.createObservable(returnContent, delay);
+  }
+
   getImage(delay: number): Observable<string> {
     // image is in public folder
     const returnContent = 'butterfly.jpg';

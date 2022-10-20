@@ -18,6 +18,23 @@ export class BlockingResourceController {
     return r;
   }
 
+  @Get('blockingjs')
+  @Header('Content-Type', 'application/javascript')
+  async getBlockingJsResource(@Query() params: any) {
+    let delay = 0;
+    let processDelay = 0;
+    if (params && params.delay) {
+      delay = parseInt(params.delay);
+    }
+    if (params && params.processDelay) {
+      processDelay = parseInt(params.processDelay);
+    }
+    const r = await firstValueFrom(
+      this.blockingService.getBlockingJS(delay, processDelay),
+    );
+    return r;
+  }
+
   @Get('image')
   async getImgResource(@Query() params: any, @Res() res: Response) {
     let delay = 1000;
