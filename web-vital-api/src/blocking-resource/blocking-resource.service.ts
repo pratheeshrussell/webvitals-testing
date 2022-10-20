@@ -16,7 +16,7 @@ export class BlockingResourceService {
       const startEvent = new Event('blockingjs.start');
       const endEvent = new Event('blockingjs.done');
       document.dispatchEvent(startEvent);
-      while(Date.now() <= busyTime){}
+      while(busyTime >= Date.now()){}
       document.dispatchEvent(endEvent);
     `;
     return this.createObservable(returnContent, delay);
