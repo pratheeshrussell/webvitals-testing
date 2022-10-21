@@ -1,6 +1,7 @@
 # Total Blocking Time
 
-### What is TBT
+## FAQ
+### How is TBT calculated
 [How is TBT calculated](https://web.dev/lighthouse-total-blocking-time/#what-tbt-measures)
 
 ## TBT Score

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>FCP</title>
+    
+</head>
+<body>
+    <div x-data="fcpDemo" class="col-12 d-flex justify-content-center p-5">
+        <div class="col-6 d-flex flex-column align-items-center">
+            <h2 id="heading" x-text="heading" class="text-center"></h2>
+            <img src="http://localhost:3000/blocking-resource/image?delay=50" style="min-height:0px;max-height:300px"  width="auto" />
+        </div>
+    </div>
+
+</body>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('fcpDemo', () => ({
+            heading:'',
+            init(){
+                setTimeout(()=>{ 
+                    this.heading = 'FCP Testing';
+                },500);
+
+            }
+        }))
+    })
+
+</script>
+
+</html>
