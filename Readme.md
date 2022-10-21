@@ -21,7 +21,7 @@ npm install -g lighthouse
 ```
 Then run the following command with your url
 ```
-lighthouse <url> --only-categories=performance --preset=desktop --devtools=devtools
+lighthouse <url> --only-categories=performance --preset=desktop --throttling-method=devtools
 ```
 
 ## TBD
