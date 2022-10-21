@@ -6,21 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="./tti.js"></script>
-    <title>TTI</title>
+    <title>TTI Cheat</title>
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
-               runLongTask();
+            runLongCheatTask();
         });  
     </script>
 </head>
 <body>
     <div class="col-12 d-flex flex-column align-items-start justify-content-center p-5">
-        <div class="col-12 d-flex flex-column align-items-center">
-            <h2 id="heading" class="text-center">TTI Testing</h2>
+        <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+            <h2 id="heading" class="text-center">TTI Cheat Testing</h2>
+        </div>
+        <div class="m-1">
+            <strong>NOTE:</strong> This is just for demo, and is not a way to improve TTI.
         </div>
         <div class="m-1">
             TTI measures how long it takes for a web page to be fully interactive. This occurs at a point when the last Long Task finishes and is followed by 5 seconds of inactivity on the main thread. 
         </div>
+        <div class="m-1">
+            Based on that logic this page should have a very good TTI, eventhough a long task is scheduled after 5.5seconds.
+        </div>
+
+        
     </div>
     
 </body>

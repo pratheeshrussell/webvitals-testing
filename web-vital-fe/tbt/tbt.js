@@ -1,6 +1,13 @@
+const correctionFactor = 0.999;
 function tbtlongTask(ms = 49) {
-    const busyTime = Date.now() + ms;
-    while (busyTime >= Date.now()) { }
+    // const busyTime = Date.now() + ms;
+    // while (busyTime >= Date.now()) { }
+    let start = (window.performance.now());
+    let end = start;
+    while((end - start) < (ms+correctionFactor)){
+        end = (window.performance.now());
+    }
+
 }
 
 function runLongTask() {
