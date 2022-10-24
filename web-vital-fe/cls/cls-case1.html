@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="cls.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
-    <title>CLS</title>
+    <title>CLS-case1</title>
 </head>
 <body >
     <div x-data="clsDemo" class="col-12 d-flex justify-content-center">
@@ -15,7 +14,7 @@
                 <div class="d-flex align-items-center justify-content-center" style="height:30vh;width:100%">
                     <h2 id="heading" x-text="heading" class="text-center" ></h2>
                 </div>
-                <div class="d-flex justify-content-center" style="min-height:0px;max-height:25vh;width:100%;background-color:beige;">
+                <div class="d-flex justify-content-center" style="height:25vh;width:100%;background-color:beige;">
                     <img src="http://localhost:3000/blocking-resource/image?delay=2000" height="100%"  width="auto" />
                 </div>
                 <div class="d-flex justify-content-center" style="height:45vh;background-color: blanchedalmond;overflow: hidden;" x-show.important="showCls"  >
@@ -28,12 +27,6 @@
 </body>
 
 <script>
-    // calculate CLS
-    calculateClSManually()
-    // Calculate CLS with Observer
-    // calculateClsWithObserver();
-
-    // For lighthouse metric
     document.addEventListener('alpine:init', () => {
         Alpine.data('clsDemo', () => ({
             heading:'Migratory monarch butterfly now Endangered',
@@ -49,7 +42,8 @@
                 });
             }
         }))
-    })
+    });
+
 
 </script>
 </html>
