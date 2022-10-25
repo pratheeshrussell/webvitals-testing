@@ -13,3 +13,4 @@ As of Light house version 9, SI accounts for 10% of the overall score. A score l
 ## Reference
 * https://web.dev/speed-index/
 * https://github.com/WPO-Foundation/webpagetest-docs/blob/main/src/metrics/SpeedIndex.md
+* https://www.section.io/blog/speedindex-for-website-performance-monitoring/
