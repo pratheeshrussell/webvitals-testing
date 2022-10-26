@@ -5,8 +5,8 @@
 [What is tti](https://web.dev/interactive/?#what-tti-measures)
 
 ## TTI Score
-As of Light house version 9, TTI accounts for 10% of the overall score. A score less than 3.8s is considered good.
-![tti score](./doc/score.png)
+As of Light house version 9, TTI accounts for 10% of the overall score. A score less than 2.5s is considered good and over 4.5s is bad.
+
 
 **Note** The Lighthouse reports can be found under *lighthouse_reports* folder
 ## Demo
