@@ -8,8 +8,13 @@
     <script src="./tti.js"></script>
     <title>TTI Split</title>
     <script>
+        
         window.addEventListener('DOMContentLoaded', (event) => {
-               runLongSplitTask();
+            const element = document.getElementById("ttibtn");
+            element.addEventListener("click", function() {
+                console.log('button clicked');
+            });
+            runLongSplitTask();
         });  
     </script>
 </head>
@@ -17,6 +22,9 @@
     <div class="col-12 d-flex flex-column align-items-start justify-content-center p-5">
         <div class="col-12 d-flex flex-column align-items-center">
             <h2 id="heading" class="text-center">TTI Split Testing</h2>
+        </div>
+        <div class="col-12 d-flex flex-column align-items-center">
+            <button id="ttibtn" type="button" class="btn btn-primary">Click me</button>
         </div>
         <div class="m-1">
             TTI measures how long it takes for a web page to be fully interactive. This occurs at a point when the last Long Task finishes and is followed by 5 seconds of inactivity on the main thread. 

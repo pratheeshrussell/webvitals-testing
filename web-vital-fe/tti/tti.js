@@ -10,6 +10,7 @@ function ttilongTask(ms = 49) {
 
 function runLongTask() {
     ttilongTask(2000);
+    console.log('Task complete');
     //setTimeout(() => ttilongTask(200),1800);
 }
 
@@ -27,7 +28,10 @@ function runLongSplitTask() {
 
     setTimeout(() => ttilongTask(30),2100);
 
-    setTimeout(() => ttilongTask(30),2300);
+    setTimeout(() => {
+        ttilongTask(30);
+        console.log('Final Task complete');
+    },2300);
     
 }
 
