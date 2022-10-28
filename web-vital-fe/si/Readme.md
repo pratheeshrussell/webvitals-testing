@@ -9,6 +9,11 @@ As of Light house version 9, SI accounts for 10% of the overall score. A score l
 
 
 ## Demo
+A rough idea to calculate speed index would be to plot the %loaded vs time
+![unshaded](./doc/unshaded.png)
+and then calculate the area above the curve
+![shaded](./doc/shaded.png)
+In a real site this would be much complex and the above graph suits only for our demo. Do note that this is dependant on viewport.
 
 ## Reference
 * https://web.dev/speed-index/

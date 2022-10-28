@@ -8,6 +8,8 @@
 CLS is calculated based on 2 parameters, namely impact fraction and distance fraction. Refer the following link for more details
 [Calculating cls](https://web.dev/cls/#layout-shift-score)
 
+**Note** CLS, like LCP, considers elements in the *viewport* and not the page. So better dock dev tools to side or undock it to a separate window.
+
 ## CLS Score
 As of Light house version 9, CLS accounts for 15% of the overall score. A score less than 0.1 is considered good.
 ![cls score](./doc/score.png)
