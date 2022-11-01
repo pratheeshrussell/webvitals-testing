@@ -10,7 +10,10 @@ As of Light house version 9, LCP accounts for 25% of the overall score. A score 
 **Note** LCP, unlike FCP, considers the largest text/image block in the *viewport* and not the page. So better dock dev tools to side or undock it to a separate window.
 
 ## Demo
-1. lcp.html 
+1. lcp.html  
+defer the blockingjs script and try
+2. lcp-delayed.html   
+In this case the content is rendered only after the js is rendered in such cases defer makes no difference.
 
 
 ## Reference

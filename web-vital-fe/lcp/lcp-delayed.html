@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script>
+        var start, end;
+        var domLoaded = false;
+        var jsParsed = false;
+        var textSet = false;
+        function setTexts(){
+            if(!domLoaded || !jsParsed || textSet){return;}
+        
+            document.querySelector("#heading").innerText = `LCP Delay Testing`;
+            document.querySelector("#img-placeholder").innerHTML = `
+            <img class="mt-5" src="http://localhost:3000/blocking-resource/image?delay=0" style="height:100%"  width="auto" />
+            `;
+            textSet=true;
+        }
+        window.addEventListener('DOMContentLoaded', (event) => {
+            domLoaded = true;
+            setTexts();
+        });
+
+        document.addEventListener('blockingjs.start', () => {
+            start = window.performance.now();
+        });
+        document.addEventListener('blockingjs.done', () => {
+            end = window.performance.now();
+            console.log(`Execution time: ${end - start} ms`);
+            jsParsed = true;
+            setTexts();
+        });
+    </script>
+
+    <script defer src="./lcp.js"></script>
+    <script src="http://localhost:3000/blocking-resource/blockingjs?delay=0&processDelay=2500"></script>
+     
+    <title>LCP Delayed</title>
+    
+</head>
+<body>
+    <div class="col-12 d-flex justify-content-center mt-5 p-5">
+        <div class="col-6 mt-5 d-flex flex-column align-items-center">
+            <div style="min-height:50px">
+                <h2 id="heading" class="text-center"></h2>
+            </div>
+            <div id="img-placeholder" style="height:300px">
+
+            </div>
+           
+        </div>
+    </div>
+
+</body>
+
+</html>
