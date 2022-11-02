@@ -57,7 +57,8 @@ function calculateClsWithObserver() {
                     clsEntries = sessionEntries;
 
                     // Log the updated value (and its entries) to the console.
-                    console.log('CLS:', clsValue)
+                    console.log('Calculating with PerformanceObserver')
+                    console.log('CLS:', clsValue);
                 }
             }
         }
